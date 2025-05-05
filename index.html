@@ -2,55 +2,103 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GeniusBar</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #000;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #00bcd4;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      padding: 80px 20px;
       text-align: center;
     }
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.2em;
+      font-size: 3em;
+      margin-bottom: 20px;
     }
     p {
       font-size: 1.2em;
-      margin-bottom: 2em;
-      color: #333;
+      margin-bottom: 40px;
+      max-width: 600px;
     }
-    .tg-button {
-      background-color: #0088cc;
-      color: white;
+    .button {
+      background-color: #00bcd4;
+      color: #000;
+      padding: 15px 30px;
+      font-size: 1.2em;
       border: none;
-      padding: 1em 2em;
-      font-size: 1.1em;
-      border-radius: 10px;
+      border-radius: 8px;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s;
     }
-    .tg-button:hover {
-      background-color: #0073b1;
+    .button:hover {
+      background-color: #0097a7;
     }
     footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.8em;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
       color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>GeniusBar</h1>
-  <p>Онлайн-консультації та ремонт техніки</p>
-  <a class="tg-button" href="https://t.me/theOpenRobot" target="_blank">Написати в Telegram</a>
-  <footer>&copy; 2025 GeniusBar</footer>
+  <header>
+    <div class="logo">GeniusBar</div>
+    <nav>
+      <a href="#home">Головна</a>
+      <a href="#service">Сервіс</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <h1>Ласкаво просимо в GeniusBar</h1>
+    <p>Консультації, діагностика та ремонт електроніки. Залиште заявку — ми зв’яжемося з вами через Telegram.</p>
+    <a class="button" href="https://t.me/theOpenRobot" target="_blank">Відкрити Telegram-бота</a>
+  </main>
+
+  <section id="service" style="padding: 60px 20px; text-align: center;">
+    <h2>Наші послуги</h2>
+    <p>Ремонт телефонів, ноутбуків, планшетів. Швидка діагностика та якісне обслуговування.</p>
+  </section>
+
+  <section id="contacts" style="padding: 60px 20px; text-align: center;">
+    <h2>Контакти</h2>
+    <p>Email: support@geniusbar.site<br>Telegram: @ABTOMATAK</p>
+  </section>
+
+  <footer>
+    © 2025 GeniusBar. Всі права захищені.
+  </footer>
 </body>
 </html>
+
