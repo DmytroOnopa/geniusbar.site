@@ -1,17 +1,23 @@
-# GeniusBar Site
+<h1 align="center">Чіназес гайз 😎 Це супер простий односторінковий сайт з автоматичним диплоєм через Телеграм бота 👨‍💻<a href="https://geniusbar.site/" target="_blank">GENIUS⚛︎BAR</a>
 
-Односторінковий сайт для сервісу GeniusBar.
+<li>
+* Відкрий GitHub Pages:
+* Settings → Pages
+* Source: main branch → / (root)
+* Підключи свій домен yourdomain.com через DNS.
 
-## 📦 Можливості
-- Лендінг
-- Кнопка для відкриття Telegram-бота
+```bash
+git clone https://github.com/DmytroOnopa/geniusbar.site.git
+```
 
-## 🚀 Як розгорнути
-1. Форкни репозиторій або завантаж.
-2. Відкрий GitHub Pages:
-   - Settings → Pages
-   - Source: `main` branch → `/ (root)`
-3. Підключи свій домен `geniusbar.site` через DNS.
 
-## 🔗 Telegram-бот
-Не забудь замінити `YOUR_BOT_USERNAME` в `index.html` на ім’я свого Telegram-бота.
+```php
+python3 -m venv myenv
+source myenv/bin/activate
+pip install -r requirements.txt
+```
+
+```php
+pip install python-dotenv
+pip install aiogram
+```
