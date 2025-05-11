@@ -149,7 +149,7 @@ html = f"""
 <body>
     <header>
         <h1>GENIUS BAR</h1>
-        <div class="date">Last update: {datetime.now().strftime('%d.%m.%Y о %H:%M')}</div>
+        <div class="date">Last update: {datetime.now().strftime('%d.%m.%Y at %H:%M')}</div>
     </header>
     
     <div class="articles-container">
