@@ -22,7 +22,7 @@ html = f"""
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новини</title>
+    <title>GENIUS⚛︎BAR</title>
     <style>
         :root {{
             --bg-color: #121212;
@@ -148,7 +148,7 @@ html = f"""
 </head>
 <body>
     <header>
-        <h1>GENIUS BAR</h1>
+        <h1>GENIUS⚛︎BAR</h1>
         <div class="date">Last update: {datetime.now().strftime('%d.%m.%Y at %H:%M')}</div>
     </header>
     
