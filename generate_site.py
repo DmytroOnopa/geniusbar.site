@@ -148,8 +148,8 @@ html = f"""
 </head>
 <body>
     <header>
-        <h1>Останні новини</h1>
-        <div class="date">Оновлено: {datetime.now().strftime('%d.%m.%Y о %H:%M')}</div>
+        <h1>GENIUS BAR</h1>
+        <div class="date">Last update: {datetime.now().strftime('%d.%m.%Y о %H:%M')}</div>
     </header>
     
     <div class="articles-container">
@@ -183,4 +183,4 @@ html += """
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html)
 
-print("Сайт успішно згенеровано з темним дизайном та підтримкою зображень!")
+print("Перегенеровано успішно!")
