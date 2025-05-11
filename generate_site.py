@@ -1,75 +1,186 @@
 import json
 from datetime import datetime
-from pathlib import Path
+import os
 
-SITE_TITLE = "GeniusBar"
-OUTPUT_FILE = "index.html"
-ARTICLES_FILE = "articles.json"
+IMAGES_DIR = "images"
 
-HTML_HEAD = f"""
+def load_articles():
+    """Завантаження статей з файлу"""
+    try:
+        with open('articles.json', 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+# Завантажуємо та сортуємо статті
+articles = sorted(load_articles(), key=lambda x: x['date'], reverse=True)
+
+# Генеруємо HTML
+html = f"""
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{SITE_TITLE}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Новини</title>
     <style>
-        body {{ font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: #f9f9f9; }}
-        header {{ background: #222; color: #fff; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }}
-        .logo {{ font-size: 1.5rem; font-weight: bold; }}
-        .tg-button {{ background: #0088cc; color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; }}
-        .container {{ padding: 2rem; max-width: 1000px; margin: auto; }}
-        .articles {{ display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }}
-        article {{ background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }}
-        footer {{ padding: 2rem; background: #eee; text-align: center; }}
+        :root {{
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --primary-color: #bb86fc;
+            --secondary-color: #03dac6;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+        }}
+        
+        body {{
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }}
+        
+        header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }}
+        
+        h1 {{
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2.5rem;
+        }}
+        
+        .date {{
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }}
+        
+        .articles-container {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }}
+        
+        .article-card {{
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }}
+        
+        .article-card:hover {{
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }}
+        
+        .article-image {{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }}
+        
+        .article-content {{
+            padding: 25px;
+        }}
+        
+        .article-title {{
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }}
+        
+        .article-text {{
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }}
+        
+        .article-meta {{
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #888;
+        }}
+        
+        .author {{
+            color: var(--secondary-color);
+        }}
+        
+        .no-image {{
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: #666;
+            font-style: italic;
+        }}
+        
+        @media (max-width: 768px) {{
+            .articles-container {{
+                grid-template-columns: 1fr;
+            }}
+            
+            header {{
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }}
+            
+            .article-image {{
+                height: 150px;
+            }}
+        }}
     </style>
 </head>
 <body>
-<header>
-    <div class="logo">{SITE_TITLE}</div>
-    <a class="tg-button" href="https://t.me/YOUR_BOT_USERNAME">Telegram</a>
-</header>
-<div class="container">
-    <section class="articles">
+    <header>
+        <h1>Останні новини</h1>
+        <div class="date">Оновлено: {datetime.now().strftime('%d.%m.%Y о %H:%M')}</div>
+    </header>
+    
+    <div class="articles-container">
 """
 
-HTML_FOOT = """
-    </section>
-</div>
-<footer>
-    <p>Адреса: Траса Київ-Луганськ-Ізварено 295, Знам'янка</p>
-    <p>Телефон: 066 720 48 55</p>
-    <p><a href='https://maps.app.goo.gl/AvtdZg32ub6cXANY8' target='_blank'>Google Maps</a></p>
-</footer>
+for article in articles:
+    date = datetime.strptime(article['date'], '%Y-%m-%d').strftime('%d.%m.%Y')
+    image_tag = f'<img src="{article["image"]}" alt="{article["title"]}" class="article-image">' if "image" in article else '<div class="no-image">Немає зображення</div>'
+    
+    html += f"""
+        <div class="article-card">
+            {image_tag}
+            <div class="article-content">
+                <h2 class="article-title">{article['title']}</h2>
+                <div class="article-text">{article['content']}</div>
+                <div class="article-meta">
+                    <span class="author">{article.get('author', 'Невідомий автор')}</span>
+                    <span class="date">{date}</span>
+                </div>
+            </div>
+        </div>
+    """
+
+html += """
+    </div>
 </body>
 </html>
 """
 
+# Записуємо HTML у файл
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html)
 
-def generate_site():
-    with open(ARTICLES_FILE, "r", encoding="utf-8") as f:
-        articles = json.load(f)
-
-    html_content = HTML_HEAD
-
-    for article in sorted(articles, key=lambda x: x.get("date", ""), reverse=True):
-        title = article.get("title", "Без назви")
-        content = article.get("content", "")
-        date = article.get("date", "")
-        html_content += f"""
-        <article>
-            <h3>{title}</h3>
-            <small>{date}</small>
-            <p>{content}</p>
-        </article>
-        """
-
-    html_content += HTML_FOOT
-
-    Path(OUTPUT_FILE).write_text(html_content, encoding="utf-8")
-    print(f"✅ Сайт згенеровано у {OUTPUT_FILE}")
-
-
-if __name__ == "__main__":
-    generate_site()
+print("Сайт успішно згенеровано з темним дизайном та підтримкою зображень!")

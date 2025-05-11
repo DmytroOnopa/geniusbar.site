@@ -4,51 +4,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeniusBar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Новини</title>
     <style>
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-        header { background: #222; color: #fff; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; }
-        .tg-button { background: #0088cc; color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; }
-        .container { padding: 2rem; max-width: 1000px; margin: auto; }
-        .articles { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        article { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-        footer { padding: 2rem; background: #eee; text-align: center; }
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --primary-color: #bb86fc;
+            --secondary-color: #03dac6;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .date {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+        
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .article-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .article-title {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .article-content {
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .author {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-<header>
-    <div class="logo">GeniusBar</div>
-    <a class="tg-button" href="https://t.me/YOUR_BOT_USERNAME">Telegram</a>
-</header>
-<div class="container">
-    <section class="articles">
+    <header>
+        <h1>Останні новини</h1>
+        <div class="date">Оновлено: 11.05.2025 о 13:40</div>
+    </header>
+    
+    <div class="articles-container">
 
-        <article>
-            <h3>Перший пост</h3>
-            <small>2025-05-11</small>
-            <p>Ми відкрилися! Приходьте за консультацією та ремонтом.</p>
-        </article>
-        
-        <article>
-            <h3>Test</h3>
-            <small>2025-05-11</small>
-            <p>TestTestTest</p>
-        </article>
-        
-        <article>
-            <h3>Ремонт ноутбуків</h3>
-            <small>2025-05-10</small>
-            <p>Швидко, якісно та з гарантією ремонтуємо ноутбуки будь-яких брендів.</p>
-        </article>
-        
-    </section>
-</div>
-<footer>
-    <p>Адреса: Траса Київ-Луганськ-Ізварено 295, Знам'янка</p>
-    <p>Телефон: 066 720 48 55</p>
-    <p><a href='https://maps.app.goo.gl/AvtdZg32ub6cXANY8' target='_blank'>Google Maps</a></p>
-</footer>
+        <div class="article-card">
+            <h2 class="article-title">Перший пост</h2>
+            <div class="article-content">Ми відкрилися! Приходьте за консультацією та ремонтом.</div>
+            <div class="article-meta">
+                <span class="author">Невідомий автор</span>
+                <span class="date">11.05.2025</span>
+            </div>
+        </div>
+    
+        <div class="article-card">
+            <h2 class="article-title">Test</h2>
+            <div class="article-content">TestTestTest</div>
+            <div class="article-meta">
+                <span class="author">Dmytro Epifanov /</span>
+                <span class="date">11.05.2025</span>
+            </div>
+        </div>
+    
+        <div class="article-card">
+            <h2 class="article-title">Ремонт ноутбуків</h2>
+            <div class="article-content">Швидко, якісно та з гарантією ремонтуємо ноутбуки будь-яких брендів.</div>
+            <div class="article-meta">
+                <span class="author">Невідомий автор</span>
+                <span class="date">10.05.2025</span>
+            </div>
+        </div>
+    
+    </div>
 </body>
 </html>
