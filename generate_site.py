@@ -166,7 +166,7 @@ for article in articles:
                 <h2 class="article-title">{article['title']}</h2>
                 <div class="article-text">{article['content']}</div>
                 <div class="article-meta">
-                    <span class="author">{article.get('author', 'Невідомий автор')}</span>
+                    <span class="author">{article.get('author', 'Unknown author')}</span>
                     <span class="date">{date}</span>
                 </div>
             </div>
