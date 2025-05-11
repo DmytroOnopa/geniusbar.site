@@ -1,23 +1,31 @@
 [
   {
-    "id": "2",
+    "id": 1,
     "title": "testEdit2",
     "content": "test2test2test2",
     "date": "2025-05-11",
     "image": "images/249385425_AgACAgIAAxkBAAIEW2ggiPx8JdaJ8YuuTHDYaGRbefcdAAI58TEb874JSZPAn4lgUvxrAQADAgADbQADNgQ.jpg"
   },
   {
-    "id": "3",
+    "id": 2,
     "title": "Test",
     "content": "TestTestTest",
     "date": "2025-05-11",
     "author": "Dmytro Epifanov /"
   },
   {
-    "id": "1746962778.243354",
+    "id": 3,
     "title": "TEST",
     "content": "abra cadabra 23",
     "image": "images/249385425_AgACAgIAAxkBAAIEY2ggiUFlK4BjE1G3mFRboBphafb7AAJK8TEb874JSWCrJVawiE9wAQADAgADbQADNgQ.jpg",
+    "date": "2025-05-11",
+    "author": "Dmytro Epifanov /"
+  },
+  {
+    "id": 4,
+    "title": "545454",
+    "content": "fdsfdfhdsfgsdhfgsdfjsgfjh",
+    "image": "images/249385425_AgACAgIAAxkBAAIEdmggjJIKt-7z_lbMq3Djv-jTKoQEAAJq8TEb874JSa5CmglwIsdmAQADAgADeQADNgQ.jpg",
     "date": "2025-05-11",
     "author": "Dmytro Epifanov /"
   }
