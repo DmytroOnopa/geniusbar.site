@@ -22,7 +22,7 @@ html = f"""
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GENIUS⚛︎BAR</title>
+    <title>⚛︎</title>
     <style>
         :root {{
             --bg-color: #121212;
