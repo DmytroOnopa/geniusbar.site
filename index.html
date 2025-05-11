@@ -1,104 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GeniusBar</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
-      color: #fff;
-    }
-    header {
-      background-color: #000;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #00bcd4;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 20px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 40px;
-      max-width: 600px;
-    }
-    .button {
-      background-color: #00bcd4;
-      color: #000;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-    .button:hover {
-      background-color: #0097a7;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9em;
-      color: #777;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeniusBar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+        header { background: #222; color: #fff; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .tg-button { background: #0088cc; color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; }
+        .container { padding: 2rem; max-width: 1000px; margin: auto; }
+        .articles { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        article { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        footer { padding: 2rem; background: #eee; text-align: center; }
+    </style>
 </head>
 <body>
-  <header>
+<header>
     <div class="logo">GeniusBar</div>
-    <nav>
-      <a href="#home">Головна</a>
-      <a href="#service">Сервіс</a>
-      <a href="#contacts">Контакти</a>
-    </nav>
-  </header>
+    <a class="tg-button" href="https://t.me/YOUR_BOT_USERNAME">Telegram</a>
+</header>
+<div class="container">
+    <section class="articles">
 
-  <main id="home">
-    <h1>Ласкаво просимо в GeniusBar</h1>
-    <p>Консультації, діагностика та ремонт електроніки. Залиште заявку — ми зв’яжемося з вами через Telegram.</p>
-    <a class="button" href="https://t.me/theOpenRobot" target="_blank">Відкрити Telegram-бота</a>
-  </main>
-
-  <section id="service" style="padding: 60px 20px; text-align: center;">
-    <h2>Наші послуги</h2>
-    <p>Ремонт телефонів, ноутбуків, планшетів. Швидка діагностика та якісне обслуговування.</p>
-  </section>
-
-  <section id="contacts" style="padding: 60px 20px; text-align: center;">
-    <h2>Контакти</h2>
-    <p>Email: support@geniusbar.site<br>Telegram: @ABTOMATAK</p>
-  </section>
-
-  <footer>
-    © 2025 GeniusBar. Всі права захищені.
-  </footer>
+        <article>
+            <h3>Перший пост</h3>
+            <small>2025-05-11</small>
+            <p>Ми відкрилися! Приходьте за консультацією та ремонтом.</p>
+        </article>
+        
+        <article>
+            <h3>Test</h3>
+            <small>2025-05-11</small>
+            <p>TestTestTest</p>
+        </article>
+        
+        <article>
+            <h3>Ремонт ноутбуків</h3>
+            <small>2025-05-10</small>
+            <p>Швидко, якісно та з гарантією ремонтуємо ноутбуки будь-яких брендів.</p>
+        </article>
+        
+    </section>
+</div>
+<footer>
+    <p>Адреса: Траса Київ-Луганськ-Ізварено 295, Знам'янка</p>
+    <p>Телефон: 066 720 48 55</p>
+    <p><a href='https://maps.app.goo.gl/AvtdZg32ub6cXANY8' target='_blank'>Google Maps</a></p>
+</footer>
 </body>
 </html>
-
