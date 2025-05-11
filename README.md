@@ -1,10 +1,11 @@
 <h1 align="center">Чіназес гайз 😎 Це супер простий односторінковий сайт з автоматичним диплоєм через Телеграм бота 👨‍💻<a href="https://geniusbar.site/" target="_blank">GENIUS⚛︎BAR</a> </h1>
 
 <li>
-1. Відкрий GitHub Pages:
-2. Settings → Pages
-3. Source: main branch → / (root)
-4. Підключи свій домен yourdomain.com через DNS.
+	
+* Відкрий GitHub Pages:
+* Settings → Pages
+* Source: main branch → / (root)
+* Підключи свій домен yourdomain.com через DNS.
 
 
 
